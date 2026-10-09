@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5 - Formulario con validación</title>
+</head>
+<body>
+  <h1>Formulario con validación</h1>
+  <form id="formulario">
+    <p>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" name="nombre" type="text" required>
+    </p>
+    <p>
+      <label for="correo">Correo electrónico:</label>
+      <input id="correo" name="correo" type="email" required>
+    </p>
+    <p>
+      <label for="clave">Contraseña:</label>
+      <input id="clave" name="clave" type="password" minlength="6" required>
+    </p>
+    <button type="submit">Enviar</button>
+  </form>
+  <p id="mensaje"></p>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+
+    formulario.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const clave = document.getElementById("clave").value;
+
+      if (!nombre || !correo || !clave) {
+        mensaje.textContent = "Completa todos los campos.";
+      } else if (clave.length < 6) {
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+      } else {
+        mensaje.textContent = "Formulario validado correctamente.";
+      }
+    });
+  </script>
+</body>
+</html>

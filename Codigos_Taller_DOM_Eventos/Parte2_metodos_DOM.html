@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Parte 2 - Métodos del DOM</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    .nota { padding: 6px; margin: 4px 0; background: #f1f1f1; }
+    .resaltada { color: blue; }
+  </style>
+</head>
+<body>
+  <h1 id="titulo">Ejemplos de métodos del DOM</h1>
+
+  <p class="nota">Primer párrafo</p>
+  <p class="nota">Segundo párrafo</p>
+  <p>Un párrafo normal</p>
+
+  <div id="caja"></div>
+  <button id="boton">Probar cambios</button>
+  <ul id="lista"></ul>
+  <p id="temporal">Este elemento se eliminará.</p>
+
+  <script>
+    // getElementById()
+    const titulo = document.getElementById("titulo");
+
+    // getElementsByClassName()
+    const notas = document.getElementsByClassName("nota");
+    console.log("Elementos con clase nota:", notas.length);
+
+    // getElementsByTagName()
+    const parrafos = document.getElementsByTagName("p");
+    console.log("Cantidad de párrafos:", parrafos.length);
+
+    // querySelector()
+    const primeraNota = document.querySelector(".nota");
+    console.log("Primera nota:", primeraNota.textContent);
+
+    // querySelectorAll()
+    const todasLasNotas = document.querySelectorAll(".nota");
+    todasLasNotas.forEach(nota => console.log(nota.textContent));
+
+    // innerHTML y textContent
+    document.getElementById("caja").innerHTML = "<strong>Texto en negrita</strong>";
+    const ejemploTexto = document.createElement("p");
+    ejemploTexto.textContent = "<strong>Esto se muestra como texto</strong>";
+    document.body.appendChild(ejemploTexto);
+
+    // style y classList
+    document.getElementById("boton").addEventListener("click", () => {
+      titulo.style.color = "green";
+      titulo.classList.add("resaltada");
+      console.log("¿Tiene la clase resaltada?", titulo.classList.contains("resaltada"));
+    });
+
+    // createElement() y appendChild()
+    const elemento = document.createElement("li");
+    elemento.textContent = "Elemento agregado con JavaScript";
+    document.getElementById("lista").appendChild(elemento);
+
+    // remove()
+    document.getElementById("temporal").remove();
+  </script>
+</body>
+</html>

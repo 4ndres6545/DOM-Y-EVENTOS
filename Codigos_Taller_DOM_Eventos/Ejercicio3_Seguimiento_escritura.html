@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - Seguimiento de escritura</title>
+</head>
+<body>
+  <h1>Seguimiento de escritura</h1>
+  <label for="entrada">Escribe algo:</label>
+  <input id="entrada" type="text">
+  <p>Lo que escribes aparece aquí:</p>
+  <p id="resultado"></p>
+
+  <script>
+    const entrada = document.getElementById("entrada");
+    const resultado = document.getElementById("resultado");
+
+    entrada.addEventListener("input", function () {
+      resultado.textContent = entrada.value;
+    });
+  </script>
+</body>
+</html>

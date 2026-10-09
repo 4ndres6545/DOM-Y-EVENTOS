@@ -1,0 +1,30 @@
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Huellas Seguras - Buscar veterinario</title>
+</head>
+<body>
+  <h1>Huellas Seguras</h1>
+  <label for="busqueda">Buscar veterinario:</label>
+  <input id="busqueda" type="text" placeholder="Escribe una especialidad">
+  <p id="resultado">Escribe para consultar opciones.</p>
+
+  <script>
+    const busqueda = document.getElementById("busqueda");
+    const resultado = document.getElementById("resultado");
+    busqueda.addEventListener("input", () => {
+      const texto = busqueda.value.trim();
+      if (texto === "") {
+        resultado.textContent = "Escribe para consultar opciones.";
+      } else {
+        resultado.textContent = "Búsqueda ingresada: " + texto;
+      }
+    });
+  </script>
+</body>
+</html>
+
+</body>
+</html>
